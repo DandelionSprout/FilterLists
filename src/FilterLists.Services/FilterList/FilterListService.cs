@@ -85,7 +85,7 @@ namespace FilterLists.Services.FilterList
                                                      (s.AddedSnapshotRules.Count > 0 ||
                                                       s.RemovedSnapshotRules.Count > 0))
                                          .Select(s => s.CreatedDateUtc)
-                                         .OrderByDescending(s => s.Date);
+                                         .OrderByDescending(s => s.Value);
             return snapshotDates.Any() ? (DateTime?) await snapshotDates.FirstAsync() : null;
         }
     }

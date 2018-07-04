@@ -1,7 +1,6 @@
 ﻿using System.Linq;
 using FilterLists.Api.DependencyInjection.Extensions;
 using FilterLists.Data;
-using FilterLists.Data.Seed.Extensions;
 using FilterLists.Services.DependencyInjection.Extensions;
 using JetBrains.Annotations;
 using Microsoft.AspNetCore.Builder;
@@ -66,7 +65,7 @@ namespace FilterLists.Api
                 c.DocumentTitle = "FilterLists API v1";
                 c.RoutePrefix = "docs";
             });
-            MigrateAndSeedDatabase(app);
+            MigrateDatabase(app);
         }
 
         //TODO: remove hack (https://github.com/domaindrivendev/Swashbuckle.AspNetCore/issues/74#issuecomment-386762178)
@@ -80,13 +79,11 @@ namespace FilterLists.Api
             });
         }
 
-        private void MigrateAndSeedDatabase(IApplicationBuilder app)
+        private static void MigrateDatabase(IApplicationBuilder app)
         {
-            var dataPath = Configuration.GetSection("DataDirectory").GetValue<string>("Path");
             using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
             {
                 serviceScope.ServiceProvider.GetService<FilterListsDbContext>().Database.Migrate();
-                serviceScope.ServiceProvider.GetService<FilterListsDbContext>().SeedOrUpdate(dataPath);
             }
         }
     }
