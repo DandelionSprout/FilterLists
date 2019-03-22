@@ -6974,5 +6974,13 @@
   {
     "filterListId": 1532,
     "tagId": 7
+  },
+  {
+    "filterListId": 1533,
+    "tagId": 2
+  },
+  {
+    "filterListId": 1533,
+    "tagId": 3
   }
 ]
