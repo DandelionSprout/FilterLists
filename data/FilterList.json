@@ -16314,5 +16314,14 @@
     "syntaxId": 3,
     "description": "List for keloger, cookie collector, malware tracker and other spyware for suspicious.",
     "viewUrl": "https://raw.githubusercontent.com/kano1/Kano/master/Spyware_Scrip.txt"
+  },
+  {
+    "id": 1533,
+    "description": "The 7-entry blocking list known from Bluhell Firewall and Adblock Fast.",
+    "forumUrl": "http://forums.mozillazine.org/viewtopic.php?f=48&t=2318993",
+    "licenseId": 33,
+    "name": "Bluhell Firewall - Blocking List",
+    "syntaxId": 3,
+    "viewUrl": "https://raw.githubusercontent.com/rocketshipapps/adblockfast/master/opera/chrome/scripts/blocking.js"
   }
 ]
